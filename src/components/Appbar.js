@@ -1,41 +1,58 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+import { makeStyles, AppBar, Toolbar, Button } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    // display: "flex",
+    position: "fixed",
+    width: "100%",
+    paddingTop: 30,
   },
   title: {
     flexDirection: "row",
-    
+    marginLeft: "auto",
   },
-}));
+  bar: {
+    position: "static",
+    background: "none",
+  },
+  btn: {
+    marginRight: 10,
+    paddingLeft: 20,
+    color: "inherit",
+    textTransform: "none",
+    fontWeight: "bold",
+    fontSize: "17px",
+    color: "#a6a6a6",
+    display: "inline-block",
+    overflow: "hidden",
+    "&:hover, focus": {
+      transform: "translate3d(0, -105%, 0)",
+    },
+  },
+  btnDiv: {
+    position: "absolute",
+    right: 35,
+  },
+});
 
 export default function Bar() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar className={classes.bar}>
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Home
-          </Typography>
-          <Typography variant="h6" className={classes.title}>
-            Resume
-          </Typography>
-          <Typography variant="h6" className={classes.title}>
-            Works
-          </Typography>
-          <Typography variant="h6" className={classes.title}>
-            Contacts
-          </Typography>
-          <Button color="inherit">Mohammad Erfan Karami</Button>
+          <Button className={classes.btn}>
+            Mohammad Erfan{" "}
+            <span style={{ color: "white", marginLeft: "0.30em" }}>Karami</span>
+          </Button>
+          <div className={classes.btnDiv}>
+            <Button className={classes.btn}>Home</Button>
+            <Button className={classes.btn}>Resume</Button>
+            <Button className={classes.btn}>Works</Button>
+            <Button className={classes.btn}>Contacts</Button>
+          </div>
         </Toolbar>
       </AppBar>
     </div>
